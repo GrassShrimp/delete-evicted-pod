@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: delete-evicted-pod
+  labels:
+    app: delete-evicted-pod
+spec:
+  template:
+    metadata:
+      name: delete-evicted-pod
+      labels:
+        app: delete-evicted-pod
+    spec:
+      containers:
+      - name: delete-evicted-pod
+        image: delete-evicted-pod:latest
+      restartPolicy: Never
+      dnsPolicy: ClusterFirst
