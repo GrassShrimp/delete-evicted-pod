@@ -4,9 +4,10 @@ metadata:
   name: delete-evicted-pod
 build:
   artifacts:
-  - image: delete-evicted-pod
-    docker:
-      dockerfile: Dockerfile
+  - image: asia.gcr.io/pl-web-219210/delete-evicted-pod
+    kaniko: {}
+  googleCloudBuild:
+    projectId: pl-web-219210
 deploy:
   kustomize:
     paths:

@@ -11,8 +11,11 @@ spec:
       labels:
         app: delete-evicted-pod
     spec:
+      serviceAccountName: sre
       containers:
       - name: delete-evicted-pod
-        image: delete-evicted-pod:latest
+        image: asia.gcr.io/pl-web-219210/delete-evicted-pod:latest
       restartPolicy: Never
       dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: gcr-json-key
